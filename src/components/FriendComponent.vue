@@ -14,6 +14,10 @@
 export default {
   // 
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -49,11 +53,8 @@ export default {
         this.detailsAreVisible = !this.detailsAreVisible;
     },
     toggleFavorite() {
-      if(this.friendIsFavorite === '1') {
-        this.friendIsFavorite = '0'
-    }else 
-    this.friendIsFavorite = '1'
-    }
-  }
+      this.$emit('toggle-favorite', this.id);
+    },
+  },
 };
 </script>
